@@ -1,0 +1,1 @@
+Creating my first Rock-Paper-Scissors game using javascript.
