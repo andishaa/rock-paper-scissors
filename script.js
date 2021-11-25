@@ -11,10 +11,21 @@ function computerPlay() {
 // scissors beat paper
 // if they have duplicate choice they are tied
 
+const buttons = document.querySelectorAll('button');
+let buttonContent;
+buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        buttonContent = button.textContent.toLowerCase();
+        playRound();
+    });
+});
 
-function playRound (playerSelection, computerSelection) {
 
-    playerSelection = playerSelection.toLowerCase();
+function playRound () {
+
+    playerSelection = buttonContent;
+    computerSelection = computerPlay();
+    console.log(playerSelection);
     let result = 'win';
 
     if (playerSelection == computerSelection) {
@@ -24,43 +35,43 @@ function playRound (playerSelection, computerSelection) {
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
         result = 'loss';
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-        result = 'loss'
+        result = 'loss';
     }
 
-    return result
+    console.log(result);
 }
 
-function game () {
-    const playerSelection = window.prompt('Choose your weapon: rock, paper or scissors', 'rock');
-    const rounds = 5;
-    let playerScore = 0;
-    let computerScore = 0;
+// function game () {
+//     const playerSelection = window.prompt('Choose your weapon: rock, paper or scissors', 'rock');
+//     const rounds = 5;
+//     let playerScore = 0;
+//     let computerScore = 0;
 
-    for (let i = 0; i < rounds; i++) {
-        let roundResult = playRound(playerSelection, computerPlay());
+//     for (let i = 0; i < rounds; i++) {
+//         let roundResult = playRound(playerSelection, computerPlay());
 
-        if (roundResult == 'win') {
-            playerScore++;
-        } else if (roundResult == 'loss'){
-            computerScore++;
-        }
-    }
+//         if (roundResult == 'win') {
+//             playerScore++;
+//         } else if (roundResult == 'loss'){
+//             computerScore++;
+//         }
+//     }
 
-    let gameResult = '';
+//     let gameResult = '';
 
-    if (playerScore == computerScore) {
-        gameResult = 'The game is tied.'
-    } else if (playerScore > computerScore) {
-        gameResult = 'You are the winner.';
-    } else {
-        gameResult = 'You are the loser.';
-    }
+//     if (playerScore == computerScore) {
+//         gameResult = 'The game is tied.'
+//     } else if (playerScore > computerScore) {
+//         gameResult = 'You are the winner.';
+//     } else {
+//         gameResult = 'You are the loser.';
+//     }
 
-    const score = `Score: ${playerScore} : ${computerScore}`;
+//     const score = `Score: ${playerScore} : ${computerScore}`;
 
-    const endScreen = gameResult + ' ' + score;
+//     const endScreen = gameResult + ' ' + score;
 
-    alert(endScreen);
+//     alert(endScreen);
 
-}
-game();
+// }
+// game();
