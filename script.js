@@ -12,37 +12,49 @@ function computerPlay() {
 // if they have duplicate choice they are tied
 
 const buttons = document.querySelectorAll('button');
-let buttonContent;
+let playerSelection = '';
 buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
-        buttonContent = button.textContent.toLowerCase();
+        playerSelection = button.textContent.toLowerCase();
         playRound();
     });
 });
 
+let computerScore = 0;
+let playerScore = 0;
 
 function playRound () {
 
-    playerSelection = buttonContent;
     computerSelection = computerPlay();
-    console.log(playerSelection);
-    let result = 'win';
+
+    let result = 'You won!';
 
     if (playerSelection == computerSelection) {
-        result = 'tie';
+        result = 'You are Tied';
     } else if (playerSelection == 'rock' && computerSelection == 'paper') {
-        result = 'loss';
+        result = 'You lost';
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-        result = 'loss';
+        result = 'You lost';
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-        result = 'loss';
+        result = 'You lost';
     }
 
-    console.log(result);
+    const results = document.querySelector('#results');
+    results.textContent = `Your choice: ${playerSelection} VS computer's choice: ${computerSelection}. Result: ${result}`;
+    results.append;
+    
+       if (result === 'You lost') {
+        computerScore++;
+    } else if (result === 'You won!'){
+        playerScore++;
+    }
+    console.log(`Computer: ${computerScore}`);
+    console.log(`player: ${playerScore}`);
+
 }
 
 // function game () {
-//     const playerSelection = window.prompt('Choose your weapon: rock, paper or scissors', 'rock');
+//     const playerSelection = window.s('Choose your weapon: rock, paper or scissors', 'rock');
 //     const rounds = 5;
 //     let playerScore = 0;
 //     let computerScore = 0;
