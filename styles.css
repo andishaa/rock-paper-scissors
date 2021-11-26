@@ -15,18 +15,28 @@ body {
     margin: 0;
 }
 
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
 .content {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-content: center;
 }
 
 .buttons {
+    margin: 20px;
     display: flex;
     justify-content: center;
     gap: 20px;
+    /* padding-bottom: 10px; */
 }
 
-h1 {
-    width: 400px;
+#results {
+    text-align: center;
 }
+
