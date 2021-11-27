@@ -45,9 +45,9 @@ function playRound() {
         playerScore++;
     }
 
-    const gameStatus = document.querySelector('#gameStatus');
-    gameStatus.textContent = `Your choice: ${playerSelection} VS computer's choice: ${computerSelection}.`;
-    gameStatus.append;
+    const gameMsg = document.querySelector('#gameMsg');
+    gameMsg.textContent = `Your choice: ${playerSelection} VS computer's choice: ${computerSelection}.`;
+    gameMsg.append;
 
     const playerResult = document.querySelector('#playerResult');
     playerResult.textContent = `Player score: ${playerScore}`;
