@@ -12,7 +12,9 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playerSelection = button.textContent.toLowerCase();
         computerSelection = computerPlay();
-        if (playerScore === 5 || computerScore === 5) {
+        if (playerScore === 5) {
+            return;
+        } else if (computerScore === 5) {
             return;
         }
         playRound(playerSelection, computerSelection);
@@ -28,7 +30,7 @@ function playRound() {
     gameMsg.append;
 
     let result = 'You won!';
-
+// check who scores a point
     if (playerSelection == computerSelection) {
         result = 'You are Tied';
     } else if (playerSelection == 'rock' && computerSelection == 'paper') {
@@ -38,7 +40,7 @@ function playRound() {
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
         result = 'You lost';
     }
-
+// keep track of the score
     if (result === 'You lost') {
         computerScore++;
     } else if (result === 'You are Tied') {
@@ -47,6 +49,12 @@ function playRound() {
         return;
     } else {
         playerScore++;
+    }
+// check who won the game
+    if (playerScore === 5) {
+        gameMsg.textContent = `You won!`;
+    } else if (computerScore === 5) {
+        gameMsg.textContent = 'The computer won!';
     }
 
     const playerResult = document.querySelector('#playerResult');

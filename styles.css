@@ -26,6 +26,7 @@ h1 {
     flex-direction: column;
     align-content: center;
     text-align: center;
+    width: 700px;
 }
 
 #buttons {
@@ -33,14 +34,17 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 20px;
-    /* padding-bottom: 10px; */
 }
 
 #results {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 20px;
 }
 
-#gameStatus {
+#status {
     margin: 20px;
+    font-style: bold;
+    font-size: 20px;
 }
