@@ -1,22 +1,21 @@
 function computerPlay() {
-    const choices = ['rock', 'paper', 'sciossors'];
+    const choices = ['rock', 'paper', 'scissors'];
     const random = Math.random();
     let randomChoice = random * choices.length;
     randomChoice = Math.floor(randomChoice);
     return choices[randomChoice];
 }
 
-// paper beats rock
-// rock beats scissors
-// scissors beat paper
-// if they have duplicate choice they are tied
-
 const buttons = document.querySelectorAll('button');
 let playerSelection = '';
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playerSelection = button.textContent.toLowerCase();
-        playRound();
+        computerSelection = computerPlay();
+        if (playerScore === 5 || computerScore === 5) {
+            return;
+        }
+        playRound(playerSelection, computerSelection);
     });
 });
 
@@ -24,8 +23,9 @@ let computerScore = 0;
 let playerScore = 0;
 
 function playRound() {
-
-    computerSelection = computerPlay();
+    const gameMsg = document.querySelector('#gameMsg');
+    gameMsg.textContent = `Your choice: ${playerSelection} VS computer's choice: ${computerSelection}.`;
+    gameMsg.append;
 
     let result = 'You won!';
 
@@ -41,13 +41,13 @@ function playRound() {
 
     if (result === 'You lost') {
         computerScore++;
-    } else if (result === 'You won!') {
+    } else if (result === 'You are Tied') {
+        gameMsg.textContent = `Oh no, you are tied! Try again.`;
+        gameMsg.append;
+        return;
+    } else {
         playerScore++;
     }
-
-    const gameMsg = document.querySelector('#gameMsg');
-    gameMsg.textContent = `Your choice: ${playerSelection} VS computer's choice: ${computerSelection}.`;
-    gameMsg.append;
 
     const playerResult = document.querySelector('#playerResult');
     playerResult.textContent = `Player score: ${playerScore}`;
@@ -58,3 +58,4 @@ function playRound() {
     computerResult.append;
 
 }
+
