@@ -16,19 +16,19 @@ body {
 }
 
 h1 {
-    text-align: center;
     margin: 0;
     padding: 0;
 }
 
-.content {
+#content {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-content: center;
+    text-align: center;
 }
 
-.buttons {
+#buttons {
     margin: 20px;
     display: flex;
     justify-content: center;
@@ -38,5 +38,9 @@ h1 {
 
 #results {
     text-align: center;
+    margin: 20px;
 }
 
+#gameStatus {
+    margin: 20px;
+}
