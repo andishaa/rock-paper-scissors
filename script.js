@@ -14,7 +14,7 @@ function computerPlay() {
 const buttons = document.querySelectorAll('button');
 let playerSelection = '';
 buttons.forEach((button) => {
-    button.addEventListener('click', (event) => {
+    button.addEventListener('click', () => {
         playerSelection = button.textContent.toLowerCase();
         playRound();
     });
@@ -23,7 +23,7 @@ buttons.forEach((button) => {
 let computerScore = 0;
 let playerScore = 0;
 
-function playRound () {
+function playRound() {
 
     computerSelection = computerPlay();
 
@@ -39,51 +39,22 @@ function playRound () {
         result = 'You lost';
     }
 
-    const results = document.querySelector('#results');
-    results.textContent = `Your choice: ${playerSelection} VS computer's choice: ${computerSelection}. Result: ${result}`;
-    results.append;
-    
-       if (result === 'You lost') {
+    if (result === 'You lost') {
         computerScore++;
-    } else if (result === 'You won!'){
+    } else if (result === 'You won!') {
         playerScore++;
     }
-    console.log(`Computer: ${computerScore}`);
-    console.log(`player: ${playerScore}`);
+
+    const gameStatus = document.querySelector('#gameStatus');
+    gameStatus.textContent = `Your choice: ${playerSelection} VS computer's choice: ${computerSelection}.`;
+    gameStatus.append;
+
+    const playerResult = document.querySelector('#playerResult');
+    playerResult.textContent = `Player score: ${playerScore}`;
+    playerResult.append;
+
+    const computerResult = document.querySelector('#computerResult');
+    computerResult.textContent = `Computer score: ${computerScore}`;
+    computerResult.append;
 
 }
-
-// function game () {
-//     const playerSelection = window.s('Choose your weapon: rock, paper or scissors', 'rock');
-//     const rounds = 5;
-//     let playerScore = 0;
-//     let computerScore = 0;
-
-//     for (let i = 0; i < rounds; i++) {
-//         let roundResult = playRound(playerSelection, computerPlay());
-
-//         if (roundResult == 'win') {
-//             playerScore++;
-//         } else if (roundResult == 'loss'){
-//             computerScore++;
-//         }
-//     }
-
-//     let gameResult = '';
-
-//     if (playerScore == computerScore) {
-//         gameResult = 'The game is tied.'
-//     } else if (playerScore > computerScore) {
-//         gameResult = 'You are the winner.';
-//     } else {
-//         gameResult = 'You are the loser.';
-//     }
-
-//     const score = `Score: ${playerScore} : ${computerScore}`;
-
-//     const endScreen = gameResult + ' ' + score;
-
-//     alert(endScreen);
-
-// }
-// game();
