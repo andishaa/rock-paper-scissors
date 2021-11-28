@@ -65,3 +65,12 @@ function playRound() {
     computerResult.append;
 
 }
+
+const resetBtn = document.querySelector('.resetBtn');
+resetBtn.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    playerResult.textContent = `Player score: 0`;
+    computerResult.textContent = `Computer score: 0`;
+    gameMsg.textContent = 'New game started';
+});
