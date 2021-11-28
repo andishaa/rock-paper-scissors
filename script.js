@@ -6,11 +6,10 @@ function computerPlay() {
     return choices[randomChoice];
 }
 
-const buttons = document.querySelectorAll('button');
-let playerSelection = '';
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        playerSelection = button.textContent.toLowerCase();
+const playerChoice = document.querySelectorAll('.playerChoice');
+playerChoice.forEach((currentBtn) => {
+    currentBtn.addEventListener('click', () => {
+        playerSelection = currentBtn.textContent.toLowerCase();
         computerSelection = computerPlay();
         if (playerScore === 5) {
             return;
@@ -18,8 +17,8 @@ buttons.forEach((button) => {
             return;
         }
         playRound(playerSelection, computerSelection);
-    });
-});
+    })
+})
 
 let computerScore = 0;
 let playerScore = 0;
@@ -66,4 +65,3 @@ function playRound() {
     computerResult.append;
 
 }
-
